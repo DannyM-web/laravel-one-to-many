@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header .container,
+footer .container {
+  min-height: 10vh;
+  background-color: lightblue;
+}
+
+.content {
+  text-align: center;
+  min-height: 80vh;
+  background-color: pink;
+}
+
+.content ul {
+  font-size: 25px;
+  line-height: 50px;
+  list-style-type: circle;
+}
+
+.content form {
+  line-height: 50px;
+}
+
+.content form input {
+  height: 2em;
+}
+
+.content form label {
+  font-weight: bold;
+}
+
