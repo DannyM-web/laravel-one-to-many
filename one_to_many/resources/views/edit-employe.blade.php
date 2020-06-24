@@ -3,6 +3,7 @@
 @section('content')
 
   <div class="content">
+    <a href="{{route('home')}}"> HOME</a>
 
     <form  action="{{route('update', $employe -> id)}}" method="post">
       @csrf
@@ -35,6 +36,18 @@
         @endforeach
       </select>
       <br>
+
+      <label for="locations[]">LOCATION</label><br>
+      @foreach ($locations as $location)
+        <input type="checkbox" name="locations[]" value="{{$location -> id}}"
+        @foreach ($employe -> locations as $empLocation)
+          @if ($location -> id == $empLocation -> id)
+            checked
+          @endif
+        @endforeach
+        >{{$location -> state}}
+        <br>
+      @endforeach
 
       <input type="submit" name="submit" value="UPDATE">
     </form>

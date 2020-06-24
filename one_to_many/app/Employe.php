@@ -1,4 +1,5 @@
 <?php
+// WARNING: TASK and Employes Sono opposte rispeto alla consegna dell'esercizio
 
 namespace App;
 
@@ -11,6 +12,9 @@ class Employe extends Model
     public function task(){
 
       return $this -> belongsTo(Task::class);
+    }
 
+    public function locations(){
+      return $this -> belongsToMany(Location::class);
     }
 }

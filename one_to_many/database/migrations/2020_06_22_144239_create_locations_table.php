@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeys extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class AddForeignKeys extends Migration
      */
     public function up()
     {
-      Schema::table('employees', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
 
-        $table -> foreign('task_id', 'task')
-               -> references('id')
-               -> on('tasks');
-      });
+            $table->string('street');
+            $table->string('city');
+            $table->string('state');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,10 +31,6 @@ class AddForeignKeys extends Migration
      */
     public function down()
     {
-      Schema::create('employees', function (Blueprint $table) {
-
-        $table -> dropForeign('task');
-
-      });
+        Schema::dropIfExists('locations');
     }
 }
